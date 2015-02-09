@@ -87,4 +87,12 @@ public class StockDemo{
     public void printProductDetails(){
         manager.printProductDetails();
     }
+    
+    /**
+     * Devuelve las unidades que hay en existencias del producto
+     * Si el producto no existe, devuelve 0
+     */
+    public int numberInStock (int id){
+        return manager.numberInStock(id);
+    }
 }
