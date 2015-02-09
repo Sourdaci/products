@@ -22,7 +22,19 @@ public class StockManager{
      * @param item The item to be added.
      */
     public void addProduct(Product item){
-        stock.add(item);
+        boolean found = false;
+        Product goods = null;
+        Iterator<Product> iterador = stock.iterator();
+        while (iterador.hasNext() && !found){
+            goods = iterador.next();
+            if(goods.getID() == item.getID()){
+                found = true;
+                System.out.println("ERROR: Ese identificador de producto ya existe");
+            }
+        }
+        if (!found){
+            stock.add(item);
+        }
     }
 
     /**
@@ -108,5 +120,23 @@ public class StockManager{
                 System.out.println(goods.toString());
             }
         }
+    }
+    
+    /**
+     * Busca productos por su nombre
+     */
+    public Product findProduct(String name){
+        Boolean found = false;
+        Product encontrado = null;
+        Product temporal = null;
+        Iterator<Product> iterador = stock.iterator();
+        while (iterador.hasNext() && !found){
+            temporal = iterador.next();
+            if(temporal.getName().equals(name)){
+                encontrado = temporal;
+                found = true;
+            }
+        }
+        return encontrado;
     }
 }

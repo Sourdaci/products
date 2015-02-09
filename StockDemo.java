@@ -110,4 +110,18 @@ public class StockDemo{
         manager.delivery(132, 2);
         manager.stockLow(cantidad);
     }
+    
+    /**
+     * Metodo hecho para fallar: agrega objetos ya existentes y luego muestra los objetos en stock
+     */
+    public void addToStock(){
+        manager.addProduct(new Product(132, "Clock Radio"));
+        manager.addProduct(new Product(37, "Mobile Phone"));
+        manager.addProduct(new Product(23, "Microwave Oven"));
+        manager.printProductDetails();
+    }
+    
+    public Product getByName(String name){
+        return manager.findProduct(name);
+    }
 }
