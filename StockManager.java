@@ -98,4 +98,15 @@ public class StockManager{
             System.out.println(goods.toString());
         }
     }
+    
+    /**
+     * Imprime los detalles de los objetos de los que hay menos unidades de las indicadas
+     */
+    public void stockLow(int cantidad){
+        for (Product goods : stock){
+            if(goods.getQuantity() < cantidad){
+                System.out.println(goods.toString());
+            }
+        }
+    }
 }

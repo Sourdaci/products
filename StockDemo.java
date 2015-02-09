@@ -102,4 +102,12 @@ public class StockDemo{
     public void delivery(int id, int amount){
         manager.delivery(id, amount);
     }
+    
+    /**
+     * Imprime los detalles de los objetos de los que hay menos unidades de las indicadas
+     */
+    public void stockLow(int cantidad){
+        manager.delivery(132, 2);
+        manager.stockLow(cantidad);
+    }
 }
