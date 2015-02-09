@@ -80,4 +80,11 @@ public class StockDemo{
     public StockManager getManager(){
         return manager;
     }
+    
+    /**
+     * Shows details of all products
+     */
+    public void printProductDetails(){
+        manager.printProductDetails();
+    }
 }

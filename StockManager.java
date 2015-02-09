@@ -57,5 +57,8 @@ public class StockManager{
      * Print details of all the products.
      */
     public void printProductDetails(){
+        for (Product goods : stock){
+            System.out.println(goods.toString());
+        }
     }
 }
