@@ -32,6 +32,20 @@ public class StockManager{
      * @param amount The amount to increase the quantity by.
      */
     public void delivery(int id, int amount){
+        Iterator<Product> iterador = stock.iterator();
+        Product producto = null;
+        boolean found = false;
+        while (iterador.hasNext() && !found){
+            producto = iterador.next();
+            if(producto.getID() == id){
+                producto.increaseQuantity(amount);
+                System.out.println("Las unidades se intentan agregar... Hecho");
+                found = true;
+            }
+        }
+        if (!found){
+            System.out.println("ERROR: Ese producto no existe");
+        }
     }
 
     /**

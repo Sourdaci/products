@@ -95,4 +95,11 @@ public class StockDemo{
     public int numberInStock (int id){
         return manager.numberInStock(id);
     }
+    
+    /**
+     * Recibe un cargamento de producto
+     */
+    public void delivery(int id, int amount){
+        manager.delivery(id, amount);
+    }
 }
