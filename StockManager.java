@@ -23,16 +23,10 @@ public class StockManager{
      */
     public void addProduct(Product item){
         boolean found = false;
-        Product goods = null;
-        Iterator<Product> iterador = stock.iterator();
-        while (iterador.hasNext() && !found){
-            goods = iterador.next();
-            if(goods.getID() == item.getID()){
-                found = true;
-                System.out.println("ERROR: Ese identificador de producto ya existe");
-            }
-        }
-        if (!found){
+        Product goods = findProduct(item.getID());
+        if(goods != null){
+            System.out.println("ERROR: Ese identificador de producto ya existe");
+        }else{
             stock.add(item);
         }
     }
@@ -44,18 +38,11 @@ public class StockManager{
      * @param amount The amount to increase the quantity by.
      */
     public void delivery(int id, int amount){
-        Iterator<Product> iterador = stock.iterator();
-        Product producto = null;
-        boolean found = false;
-        while (iterador.hasNext() && !found){
-            producto = iterador.next();
-            if(producto.getID() == id){
-                producto.increaseQuantity(amount);
-                System.out.println("Las unidades se intentan agregar... Hecho");
-                found = true;
-            }
-        }
-        if (!found){
+        Product producto = findProduct(id);
+        if(producto != null){
+            producto.increaseQuantity(amount);
+            System.out.println("Las unidades se intentan agregar... Hecho");
+        }else{
             System.out.println("ERROR: Ese producto no existe");
         }
     }
@@ -89,15 +76,9 @@ public class StockManager{
      */
     public int numberInStock(int id){
         int stockNumber = 0;
-        Iterator<Product> iterador = stock.iterator();
-        Product producto = null;
-        boolean found = false;
-        while (iterador.hasNext() && !found){
-            producto = iterador.next();
-            if(producto.getID() == id){
-                stockNumber = producto.getQuantity();
-                found = true;
-            }
+        Product producto = findProduct(id);
+        if(producto != null){
+            stockNumber = producto.getQuantity();
         }
         return stockNumber;
     }
